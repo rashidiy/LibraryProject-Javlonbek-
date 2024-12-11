@@ -1,0 +1,81 @@
+#book-details-card{
+    padding: 20px 10px;
+    width: 100%;
+    height: auto;
+
+
+}
+#book-info-section {
+    margin: auto;
+    width: 60%;
+    height: 70%;
+    background: rgba(251, 249, 249, 0.99);
+    border: 1px solid black;
+    border-radius: 10px;
+    padding: 25px 10px;
+    display: flex;
+    justify-content: space-evenly;
+    gap: 20px;
+    align-items: center;
+}
+#book-datas-section {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    cursor: pointer;
+    /*max-width: 350px; !* Define a width constraint *!*/
+}
+
+#book-title {
+    font-style: italic;
+    color: black;
+    font-family: monospace;
+    font-size: 38px;
+    display: -webkit-box; /* Required for clamping */
+    -webkit-box-orient: vertical; /* Set vertical box layout */
+    -webkit-line-clamp: 1; /* Limit to 1 line */
+    overflow: hidden; /* Hide overflowing content */
+    cursor: pointer;
+}
+
+#book-author{
+font-family: sans-serif;
+    font-size: 30px;
+    font-style: normal;
+}
+
+#book-btns{
+    width: 60%;
+    margin: auto;
+    margin-top: 20px;
+    text-align: center;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    /*gap: 10px;*/
+    /*background: red;*/
+}
+#buy-now-btn{
+    width: 220px;
+    border:none;
+    padding: 4px 38px;
+    color: white;
+    background: slategray;
+    border-radius: 5px;
+    font-size: 20px;
+    text-decoration: none;
+    transition: all 0.5s;
+
+}
+#buy-now-btn:nth-child(1):hover{
+    background: #337fef;
+
+}
+#buy-now-btn:nth-child(2):hover{
+    /*background: #8f8e8e;*/
+    background: wheat;
+    color: black;
+}
+#buy-now-btn:nth-child(3):hover{
+    background: red;
+}
