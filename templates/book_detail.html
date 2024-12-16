@@ -1,0 +1,558 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<link rel="stylesheet" type="text/css" href="{% static 'css/book_detail.css' %}">
+
+    <section id="book-detail" class="py-5 my-5">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-5">
+                    <img src="{% static 'images/main-banner1.jpg' %}" alt="Book Cover" class="img-fluid rounded book-cover">
+                </div>
+                <div class="col-md-7">
+                    <h1 class="book-title mb-3">The Great Gatsby</h1>
+                    <p class="book-author mb-3">By <span class="author-name">F. Scott Fitzgerald</span></p>
+                    <div class="book-rating mb-3">
+                        <span class="stars">
+                            <i class="icon icon-star-full">⭐</i>
+                            <i class="icon icon-star-full">⭐</i>
+                            <i class="icon icon-star-full">⭐</i>
+                            <i class="icon icon-star-full">⭐</i>
+                            <i class="icon icon-star-half">⭐</i>
+                        </span>
+                        <span class="rating-value">(5)</span>
+                    </div>
+                    <p class="book-price mb-3">$14.99</p>
+                    <p class="book-availability mb-3">Availability: <span class="availability">In Stock</span></p>
+                    <p class="book-format mb-3">Format: <span class="format">Paperback</span></p>
+                    <div class="book-actions mb-4">
+                        <button class="btn btn-primary add-to-cart">Add to Cart</button>
+                        <button class="btn btn-outline-secondary add-to-wishlist">Add to Wishlist</button>
+                    </div>
+                    <div class="book-description">
+                        <h3>Description</h3>
+                        <p>Set in the summer of 1922, The Great Gatsby follows the life of millionaire Jay Gatsby and his obsession to reunite with his former lover, Daisy Buchanan.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="book-details" class="py-5 bg-light">
+        <div class="container">
+            <h2 class="section-title mb-4">Book Details</h2>
+            <div class="row">
+                <div class="col-md-6">
+                    <p><strong>Published Date:</strong> <span class="published-date">April 10, 1925</span></p>
+                    <p><strong>Category:</strong> <span class="category">Classic Literature</span></p>
+                    <p><strong>Pages:</strong> <span class="page-count">180</span></p>
+                </div>
+                <div class="col-md-6">
+                    <p><strong>ISBN:</strong> <span class="isbn">978-0743273565</span></p>
+                    <p><strong>Language:</strong> <span class="language">English</span></p>
+                    <p><strong>Publisher:</strong> <span class="publisher">Scribner</span></p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="reviews" class="py-5">
+        <div class="container">
+            <h2 class="section-title mb-4">Customer Reviews</h2>
+            
+            <div id="review-form" class="mb-4">
+                <h3 class="h5">Write a Review</h3>
+                <form id="new-review-form">
+                    <div class="row g-3">
+                        <div class="col-md-4">
+                            <input type="text" class="form-control form-control-sm" id="review-author" placeholder="Your Name" required>
+                        </div>
+                        <div class="col-md-4">
+                            <select class="form-select form-select-sm" id="review-rating" required>
+                                <option value="">Select a rating</option>
+                                <option value="5">5 stars</option>
+                                <option value="4">4 stars</option>
+                                <option value="3">3 stars</option>
+                                <option value="2">2 stars</option>
+                                <option value="1">1 star</option>
+                            </select>
+                        </div>
+                        <div class="col-md-4">
+                            <button type="submit" class="btn btn-primary btn-sm w-100">Submit Review</button>
+                        </div>
+                        <div class="col-12">
+                            <textarea class="form-control form-control-sm" id="review-text" rows="3" placeholder="Your Review" required></textarea>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            
+            <div id="reviews-container">
+                <div class="review">
+                    <p><span class="review-author">John Doe</span> - <span class="review-date">2023-06-15</span></p>
+                    <p>A masterpiece of American literature. Fitzgerald's prose is simply beautiful.</p>
+                    <p>Rating: 5/5</p>
+                </div>
+                <div class="review">
+                    <p><span class="review-author">Jane Smith</span> - <span class="review-date">2023-06-10</span></p>
+                    <p>Captivating story with complex characters. A must-read classic.</p>
+                    <p>Rating: 4/5</p>
+                </div>
+                <div class="review">
+                    <p><span class="review-author">Mike Johnson</span> - <span class="review-date">2023-06-05</span></p>
+                    <p>Intriguing plot, but I found some parts a bit slow.</p>
+                    <p>Rating: 3/5</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+   <section id="popular-books" class="bookshelf py-5 my-5">
+		<div class="container">
+			<div class="row">
+				<div class="col-md-12">
+
+					<div class="section-header align-center">
+						<div class="title">
+							<span>Some quality items</span>
+						</div>
+						<h2 class="section-title">Popular Books</h2>
+					</div>
+
+					<ul class="tabs">
+						<li data-tab-target="#all-genre" class="active tab">All Genre</li>
+						<li data-tab-target="#business" class="tab">Business</li>
+						<li data-tab-target="#technology" class="tab">Technology</li>
+						<li data-tab-target="#romantic" class="tab">Romantic</li>
+						<li data-tab-target="#adventure" class="tab">Adventure</li>
+						<li data-tab-target="#fictional" class="tab">Fictional</li>
+					</ul>
+
+					<div class="tab-content">
+						<div id="all-genre" data-tab-content class="active">
+							<div class="row">
+
+								<div class="col-md-3">
+									<div class="product-item">
+										<figure class="product-style">
+											<img src="{% static 'images/tab-item1.jpg' %}" alt="Books" class="product-item">
+											<button type="button" class="add-to-cart" data-product-tile="add-to-cart">Add to
+												Cart</button>
+										</figure>
+										<figcaption>
+											<h3>Portrait photography</h3>
+											<span>Adam Silber</span>
+											<div class="item-price">$ 40.00</div>
+										</figcaption>
+									</div>
+								</div>
+
+								<div class="col-md-3">
+									<div class="product-item">
+										<figure class="product-style">
+											<img src="{% static 'images/tab-item2.jpg' %}" alt="Books" class="product-item">
+											<button type="button" class="add-to-cart" data-product-tile="add-to-cart">Add to
+												Cart</button>
+										</figure>
+										<figcaption>
+											<h3>Once upon a time</h3>
+											<span>Klien Marry</span>
+											<div class="item-price">$ 35.00</div>
+										</figcaption>
+									</div>
+								</div>
+
+								<div class="col-md-3">
+									<div class="product-item">
+										<figure class="product-style">
+											<img src="{% static 'images/tab-item3.jpg' %}" alt="Books" class="product-item">
+											<button type="button" class="add-to-cart" data-product-tile="add-to-cart">Add to
+												Cart</button>
+										</figure>
+										<figcaption>
+											<h3>Tips of simple lifestyle</h3>
+											<span>Bratt Smith</span>
+											<div class="item-price">$ 40.00</div>
+										</figcaption>
+									</div>
+								</div>
+
+								<div class="col-md-3">
+									<div class="product-item">
+										<figure class="product-style">
+											<img src="{% static 'images/tab-item4.jpg' %}" alt="Books" class="product-item">
+											<button type="button" class="add-to-cart" data-product-tile="add-to-cart">Add to
+												Cart</button>
+										</figure>
+										<figcaption>
+											<h3>Just felt from outside</h3>
+											<span>Nicole Wilson</span>
+											<div class="item-price">$ 40.00</div>
+										</figcaption>
+									</div>
+								</div>
+
+							</div>
+							<div class="row">
+
+								<div class="col-md-3">
+									<div class="product-item">
+										<figure class="product-style">
+											<img src="{% static 'images/tab-item5.jpg' %}" alt="Books" class="product-item">
+											<button type="button" class="add-to-cart" data-product-tile="add-to-cart">Add to
+												Cart</button>
+										</figure>
+										<figcaption>
+											<h3>Peaceful Enlightment</h3>
+											<span>Marmik Lama</span>
+											<div class="item-price">$ 40.00</div>
+										</figcaption>
+									</div>
+								</div>
+
+								<div class="col-md-3">
+									<div class="product-item">
+										<figure class="product-style">
+											<img src="{% static 'images/tab-item6.jpg' %}" alt="Books" class="product-item">
+											<button type="button" class="add-to-cart" data-product-tile="add-to-cart">Add to
+												Cart</button>
+										</figure>
+										<figcaption>
+											<h3>Great travel at desert</h3>
+											<span>Sanchit Howdy</span>
+											<div class="item-price">$ 40.00</div>
+										</figcaption>
+									</div>
+								</div>
+
+								<div class="col-md-3">
+									<div class="product-item">
+										<figure class="product-style">
+											<img src="{% static 'images/tab-item7.jpg' %}" alt="Books" class="product-item">
+											<button type="button" class="add-to-cart" data-product-tile="add-to-cart">Add to
+												Cart</button>
+										</figure>
+										<figcaption>
+											<h3>Life among the pirates</h3>
+											<span>Armor Ramsey</span>
+											<div class="item-price">$ 40.00</div>
+										</figcaption>
+									</div>
+								</div>
+
+								<div class="col-md-3">
+									<div class="product-item">
+										<figure class="product-style">
+											<img src="{% static 'images/tab-item8.jpg' %}" alt="Books" class="product-item">
+											<button type="button" class="add-to-cart" data-product-tile="add-to-cart">Add to
+												Cart</button>
+										</figure>
+										<figcaption>
+											<h3>Simple way of piece life</h3>
+											<span>Armor Ramsey</span>
+											<div class="item-price">$ 40.00</div>
+										</figcaption>
+									</div>
+								</div>
+
+							</div>
+
+						</div>
+						<div id="business" data-tab-content>
+							<div class="row">
+								<div class="col-md-3">
+									<div class="product-item">
+										<figure class="product-style">
+											<img src="{% static 'images/tab-item2.jpg' %}" alt="Books" class="product-item">
+											<button type="button" class="add-to-cart" data-product-tile="add-to-cart">Add to
+												Cart</button>
+										</figure>
+										<figcaption>
+											<h3>Peaceful Enlightment</h3>
+											<span>Marmik Lama</span>
+											<div class="item-price">$ 40.00</div>
+										</figcaption>
+									</div>
+								</div>
+
+								<div class="col-md-3">
+									<div class="product-item">
+										<figure class="product-style">
+											<img src="{% static 'images/tab-item4.jpg' %}" alt="Books" class="product-item">
+											<button type="button" class="add-to-cart" data-product-tile="add-to-cart">Add to
+												Cart</button>
+										</figure>
+										<figcaption>
+											<h3>Great travel at desert</h3>
+											<span>Sanchit Howdy</span>
+											<div class="item-price">$ 40.00</div>
+										</figcaption>
+									</div>
+								</div>
+
+								<div class="col-md-3">
+									<div class="product-item">
+										<figure class="product-style">
+											<img src="{% static 'images/tab-item6.jpg' %}" alt="Books" class="product-item">
+											<button type="button" class="add-to-cart" data-product-tile="add-to-cart">Add to
+												Cart</button>
+										</figure>
+										<figcaption>
+											<h3>Life among the pirates</h3>
+											<span>Armor Ramsey</span>
+											<div class="item-price">$ 40.00</div>
+										</figcaption>
+									</div>
+								</div>
+
+								<div class="col-md-3">
+									<div class="product-item">
+										<figure class="product-style">
+											<img src="{% static 'images/tab-item8.jpg' %}" alt="Books" class="product-item">
+											<button type="button" class="add-to-cart" data-product-tile="add-to-cart">Add to
+												Cart</button>
+										</figure>
+										<figcaption>
+											<h3>Simple way of piece life</h3>
+											<span>Armor Ramsey</span>
+											<div class="item-price">$ 40.00</div>
+										</figcaption>
+									</div>
+								</div>
+
+							</div>
+						</div>
+
+						<div id="technology" data-tab-content>
+							<div class="row">
+								<div class="col-md-3">
+									<div class="product-item">
+										<figure class="product-style">
+											<img src="{% static 'images/tab-item1.jpg' %}" alt="Books" class="product-item">
+											<button type="button" class="add-to-cart" data-product-tile="add-to-cart">Add to
+												Cart</button>
+										</figure>
+										<figcaption>
+											<h3>Peaceful Enlightment</h3>
+											<span>Marmik Lama</span>
+											<div class="item-price">$ 40.00</div>
+										</figcaption>
+									</div>
+								</div>
+
+								<div class="col-md-3">
+									<div class="product-item">
+										<figure class="product-style">
+											<img src="{% static 'images/tab-item3.jpg' %}" alt="Books" class="product-item">
+											<button type="button" class="add-to-cart" data-product-tile="add-to-cart">Add to
+												Cart</button>
+										</figure>
+										<figcaption>
+											<h3>Great travel at desert</h3>
+											<span>Sanchit Howdy</span>
+											<div class="item-price">$ 40.00</div>
+										</figcaption>
+									</div>
+								</div>
+
+								<div class="col-md-3">
+									<div class="product-item">
+										<figure class="product-style">
+											<img src="{% static 'images/tab-item5.jpg' %}" alt="Books" class="product-item">
+											<button type="button" class="add-to-cart" data-product-tile="add-to-cart">Add to
+												Cart</button>
+										</figure>
+										<figcaption>
+											<h3>Life among the pirates</h3>
+											<span>Armor Ramsey</span>
+											<div class="item-price">$ 40.00</div>
+										</figcaption>
+									</div>
+								</div>
+
+								<div class="col-md-3">
+									<div class="product-item">
+										<figure class="product-style">
+											<img src="{% static 'images/tab-item7.jpg' %}" alt="Books" class="product-item">
+											<button type="button" class="add-to-cart" data-product-tile="add-to-cart">Add to
+												Cart</button>
+										</figure>
+										<figcaption>
+											<h3>Simple way of piece life</h3>
+											<span>Armor Ramsey</span>
+											<div class="item-price">$ 40.00</div>
+										</figcaption>
+									</div>
+								</div>
+							</div>
+						</div>
+
+						<div id="romantic" data-tab-content>
+							<div class="row">
+								<div class="col-md-3">
+									<div class="product-item">
+										<figure class="product-style">
+											<img src="{% static 'images/tab-item1.jpg' %}" alt="Books" class="product-item">
+											<button type="button" class="add-to-cart" data-product-tile="add-to-cart">Add to
+												Cart</button>
+										</figure>
+										<figcaption>
+											<h3>Peaceful Enlightment</h3>
+											<span>Marmik Lama</span>
+											<div class="item-price">$ 40.00</div>
+										</figcaption>
+									</div>
+								</div>
+
+								<div class="col-md-3">
+									<div class="product-item">
+										<figure class="product-style">
+											<img src="{% static 'images/tab-item3.jpg' %}" alt="Books" class="product-item">
+											<button type="button" class="add-to-cart" data-product-tile="add-to-cart">Add to
+												Cart</button>
+										</figure>
+										<figcaption>
+											<h3>Great travel at desert</h3>
+											<span>Sanchit Howdy</span>
+											<div class="item-price">$ 40.00</div>
+										</figcaption>
+									</div>
+								</div>
+
+								<div class="col-md-3">
+									<div class="product-item">
+										<figure class="product-style">
+											<img src="{% static 'images/tab-item5.jpg' %}" alt="Books" class="product-item">
+											<button type="button" class="add-to-cart" data-product-tile="add-to-cart">Add to
+												Cart</button>
+										</figure>
+										<figcaption>
+											<h3>Life among the pirates</h3>
+											<span>Armor Ramsey</span>
+											<div class="item-price">$ 40.00</div>
+										</figcaption>
+									</div>
+								</div>
+
+								<div class="col-md-3">
+									<div class="product-item">
+										<figure class="product-style">
+											<img src="{% static 'images/tab-item7.jpg' %}" alt="Books" class="product-item">
+											<button type="button" class="add-to-cart" data-product-tile="add-to-cart">Add to
+												Cart</button>
+										</figure>
+										<figcaption>
+											<h3>Simple way of piece life</h3>
+											<span>Armor Ramsey</span>
+											<div class="item-price">$ 40.00</div>
+										</figcaption>
+									</div>
+								</div>
+							</div>
+						</div>
+
+						<div id="adventure" data-tab-content>
+							<div class="row">
+								<div class="col-md-3">
+									<div class="product-item">
+										<figure class="product-style">
+											<img src="{% static 'images/tab-item5.jpg' %}" alt="Books" class="product-item">
+											<button type="button" class="add-to-cart" data-product-tile="add-to-cart">Add to
+												Cart</button>
+										</figure>
+										<figcaption>
+											<h3>Life among the pirates</h3>
+											<span>Armor Ramsey</span>
+											<div class="item-price">$ 40.00</div>
+										</figcaption>
+									</div>
+								</div>
+
+								<div class="col-md-3">
+									<div class="product-item">
+										<figure class="product-style">
+											<img src="{% static 'images/tab-item7.jpg' %}" alt="Books" class="product-item">
+											<button type="button" class="add-to-cart" data-product-tile="add-to-cart">Add to
+												Cart</button>
+										</figure>
+										<figcaption>
+											<h3>Simple way of piece life</h3>
+											<span>Armor Ramsey</span>
+											<div class="item-price">$ 40.00</div>
+										</figcaption>
+									</div>
+								</div>
+							</div>
+						</div>
+
+						<div id="fictional" data-tab-content>
+							<div class="row">
+								<div class="col-md-3">
+									<div class="product-item">
+										<figure class="product-style">
+											<img src="{% static 'images/tab-item5.jpg' %}" alt="Books" class="product-item">
+											<button type="button" class="add-to-cart" data-product-tile="add-to-cart">Add to
+												Cart</button>
+										</figure>
+										<figcaption>
+											<h3>Life among the pirates</h3>
+											<span>Armor Ramsey</span>
+											<div class="item-price">$ 40.00</div>
+										</figcaption>
+									</div>
+								</div>
+
+								<div class="col-md-3">
+									<div class="product-item">
+										<figure class="product-style">
+											<img src="{% static 'images/tab-item7.jpg' %}" alt="Books" class="product-item">
+											<button type="button" class="add-to-cart" data-product-tile="add-to-cart">Add to
+												Cart</button>
+										</figure>
+										<figcaption>
+											<h3>Simple way of piece life</h3>
+											<span>Armor Ramsey</span>
+											<div class="item-price">$ 40.00</div>
+										</figcaption>
+									</div>
+								</div>
+							</div>
+						</div>
+
+					</div>
+
+				</div><!--inner-tabs-->
+
+			</div>
+		</div>
+	</section>
+
+    <script src="{% static 'js/book_detail.js' %}"></script>
+{% endblock content %}
+{#    <link rel="stylesheet" href="{% static 'css/book_detail.css' %}">#}
+{#    <div id="book-details-card">#}
+{#    <div id="book-info-section">#}
+{#        <div id="book-image-section">#}
+{#            {% if book.book_image %}#}
+{#            <img id="rasm" style="height: 360px; width: 280px; border-radius: 10px" src="{{ book.book_image.url }}" alt="{{ book.title }}">#}
+{#             {% else %}#}
+{#             <img id="rasm" style="height: 360px; width: 280px; border-radius: 10px" src="book-placeholder.jpg" alt="Book Cover">#}
+{#             {% endif %}#}
+{#         </div>#}
+{#              <div id="book-datas-section">#}
+{#                <h2 id="book-title">{{ book.title }} </h2>#}
+{#                <h2 id="book-author">Author: <strong>{{ book.author }}</strong></h2>#}
+{#                  <p id="book-year">Year: {{ book.published_date.year }}</p>#}
+{#                 <p id="book-category">Category: <strong>{{ book.category }}</strong></p>#}
+{#                  #}
+{##}
+{#        </div>#}
+{#    </div>#}
+{#    <div id="book-btns">#}
+{#            <a id="buy-now-btn" href="{{ book.book_pdf.url }}" download>Yuklab olish</a>#}
+{#            <a id="buy-now-btn" href="{% url 'books-edit' book.pk %}">Tahrirlash</a>#}
+{#            <a id="buy-now-btn" href="{% url 'books-delete' book.pk %}">O'chirish</a>#}
+{#        </div>#}
+{#</div>#}
+{#	#}
+{#{% endblock %}#}
