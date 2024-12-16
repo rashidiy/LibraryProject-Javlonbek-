@@ -14,23 +14,11 @@ Version: 1.1
 /** 1. VARIABLES
 --------------------------------------------------------------*/
 :root {
-  /* widths for rows and containers
-     */
+  /* widths for rows and containers */
   --header-height: 160px;
   --header-height-min: 80px;
-}
 
-/* on mobile devices below 600px
- */
-@media screen and (max-width: 600px) {
-  :root {
-    --header-height: 100px;
-    --header-height-min: 80px;
-  }
-}
-
-/* Theme Colors */
-:root {
+  /* Theme Colors */
   --accent-color: #C5A992;
   --secondary-color: #C5A992;
   --dark-color: #2f2f2f;
@@ -38,13 +26,22 @@ Version: 1.1
   --body-text-color: #757575;
   --light-text-color: #afafaf;
   --dark-text-color: #2f2f2f;
-}
 
-/* Fonts */
-:root {
+  /* Fonts */
   --body-font: "Raleway", sans-serif;
   --heading-font: "Prata", Georgia, serif;
   --secondary-font: "Playfair Display", Georgia, serif;
+
+  /* Border color (added variable) */
+  --bs-border-color: #ccc;
+}
+
+/* on mobile devices below 600px */
+@media screen and (max-width: 600px) {
+  :root {
+    --header-height: 100px;
+    --header-height-min: 80px;
+  }
 }
 
 /* Bootstrap variables */
@@ -99,7 +96,6 @@ Version: 1.1
   /* spacing */
   --bs-gutter-x: 2.5rem;
 }
-
 .display-1,
 .display-2,
 .display-3,
@@ -1553,19 +1549,19 @@ button {
 /*--- Pattern Overlay
 -----------------------------------------------*/
 .pattern-overlay {
-  background-image: url(images/pattern1.png);
+  background-image: url(static/images/pattern1.png);
   background-repeat: no-repeat;
   background-position: top right;
 }
 
 .leaf-pattern-overlay {
-  background-image: url(images/leaf.png);
+  background-image: url(static/images/leaf.png);
   background-repeat: no-repeat;
   background-position: bottom left;
 }
 
 .corner-pattern-overlay {
-  background-image: url(images/pattern2.png);
+  background-image: url(static/images/pattern2.png);
   background-repeat: no-repeat;
   background-position: top right;
 }
