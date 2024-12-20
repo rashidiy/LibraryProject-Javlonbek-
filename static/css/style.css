@@ -219,6 +219,22 @@ a {
   --bs-navbar-active-color: var(--bs-light);
 }
 
+        /* Asosiy logout tugmasi stili */
+#logout-link {
+    text-decoration: none; /* Tagini yo'qotish */
+    color: black; /* Asosiy rang */
+    font-size: 16px;
+    font-weight: bold;
+    transition: color 0.1s ease, border-bottom 0.1s ease; /* O'tish effekti */
+}
+
+/* Sichqoncha olib borilganda qizil rang */
+#logout-link:hover {
+    color: red; /* Qizil rang */
+    border-bottom: 2px solid red; /* Qizil tag chizig'i */
+    cursor: pointer; /* Sichqoncha ko'rsatkichi pointer ko'rinishida */
+}
+
 /* accordion */
 .accordion {
   --bs-accordion-border-width: 0;

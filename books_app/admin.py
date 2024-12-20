@@ -1,7 +1,8 @@
 from django.contrib import admin
 from django.utils.html import format_html
 
-from .models import Category, Author, Books, Reviews
+from .models import Category, Author, Books, Reviews, OrderItem, Cart
+
 
 @admin.register(Category)
 class CategoryAdmin(admin.ModelAdmin):
@@ -17,19 +18,19 @@ class AuthorAdmin(admin.ModelAdmin):
 
 @admin.register(Books)
 class BooksAdmin(admin.ModelAdmin):
-    list_display = ('title','image_preview', 'author', 'price', 'availability', 'format','published_date', 'average_rating', 'owner')
-    list_filter = ('availability', 'format', 'category', 'author', 'published_date')
+    list_display = ('title','image_preview', 'author', 'price', 'availability', 'format','quantity', 'average_rating', 'owner')
+    list_filter = ('availability', 'format', 'category', 'author', 'publisher')
     search_fields = ('title', 'author__name', 'category__name', 'owner__username')
     autocomplete_fields = ('author', 'category', 'owner')
     fieldsets = (
         ('General Information', {
-            'fields': ('title', 'author', 'price', 'category', 'availability', 'format')
+            'fields': ('title', 'author', 'price', 'category', 'availability', 'format', 'quantity', 'isbn')
+        }),
+        ('Additional Info', {
+            'fields': ('publisher', 'language', 'pages', 'owner', 'description', )
         }),
         ('Media', {
             'fields': ('book_image', 'book_pdf')
-        }),
-        ('Additional Info', {
-            'fields': ('published_date', 'owner')
         })
     )
 
@@ -48,3 +49,14 @@ class ReviewsAdmin(admin.ModelAdmin):
     list_filter = ('rating', 'created_at')
     search_fields = ('book__title', 'user__username', 'text')
     autocomplete_fields = ('book', 'user')
+
+@admin.register(OrderItem)
+class OrderAdmin(admin.ModelAdmin):
+    list_display = ['book__title', 'order_status', 'quantity']
+    list_filter = ('book__title', )
+    search_fields = 'book__title',
+
+@admin.register(Cart)
+class CartAdmin(admin.ModelAdmin):
+    list_display = ('user__username', 'cart_status')
+    list_filter = ('user__username', 'cart_status')
